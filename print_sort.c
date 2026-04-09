@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <windows.h>
+#include <locale.h>
 #pragma pack(push, 1)
 struct Header {
     int activeCount;      // количество активных элементов
@@ -29,9 +29,8 @@ void showHelp(char* programName) {
 }
 
 int main(int argc, char* argv[]) {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
     
+    setlocale(LC_ALL, "");
     if (argc != 2) {
         printf("Not enough arguments! (pro tip: try inputting file name too!)\n");
         showHelp(argv[0]);
